@@ -20,4 +20,3 @@ class LocalSync(base_sync.BaseSync):
         copier = syncer.Syncer(self.master_fbs_path, self.path, 'sync')
         copier.do_work()
         return set(copier._changed).union(copier._added).union(copier._deleted)
-

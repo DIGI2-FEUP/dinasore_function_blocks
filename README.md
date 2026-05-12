@@ -2,47 +2,49 @@
 
 This repository is dedicated to all Function Blocks that might be used in DINASORE and 4DIAC already with a folder organization suitable to several needs. The main idea is to add new or update Functions Blocks according to new developments.
 
+To sync the function blocks with your DINASORE instances, see [sync](#sync).
+
 ## FBs
 
 The "FBs" folder contains the set of previously mentioned function blocks. What follows is a brief description of the contents of each sub-folder.
 
-### ARITHMETIC
+#### ARITHMETIC
 
 In this folder you will find function blocks that perform relatively simple mathematical calculations.
 
-### CLUSTERING
+#### CLUSTERING
 
 This folder contains function blocks that perform clustering methods.
 
-### DATA_HANDLING
+#### DATA_HANDLING
 
 This folder contains function blocks that handle the data that is given to them without changing its value.
 
-### DATA_TRANSFORMATIONS
+#### DATA_TRANSFORMATIONS
 
 In this folder you will find function blocks that perform certain operations on data, changing its value.
 
-### DB
+#### DB
 
 This folder contains function blocks for access and usage of databases.
 
-### FILES_AND_PLOTS
+#### FILES_AND_PLOTS
 
 This folder contains function blocks that read data from files and plot the respective graphs and other representations.
 
-### MISCELLANEOUS
+#### MISCELLANEOUS
 
 In this folder you will find function blocks that do not fit in any of the other categories. 
 
-### MQTT
+#### MQTT
 
 In this folder you will find function blocks that make use of the MQTT protocol for communication.
 
-### OPC-UA
+#### OPC-UA
 
 This folder contains function blocks that make use of the OPC-UA protocol for information display/fetch.
 
-#### INFO_WRAPPER
+##### INFO_WRAPPER
 
 <br>
 <div align="center"><img src="https://user-images.githubusercontent.com/47611246/134160017-59b17d7d-5d91-4708-aeb9-8570a8b76b30.png" /></div>
@@ -67,7 +69,7 @@ You can decide what the inputs are for the method by filling out the FB's INPUT 
 
 **Note:** When you deploy a pipeline that is wrapped by INFO_WRAPPER to DINASORE from 4DIAC, DINASORE checks to see which inputs already have a value assigned to them. Consequently, if you specify the value of an input in 4DIAC, you will not have to specify its value again when calling the method.   
 
-#### METHOD_CALLER
+##### METHOD_CALLER
 
 <br>
 <div align="center"><img src="https://user-images.githubusercontent.com/47611246/134162073-a55f7d1e-838b-4e69-8fb5-9a983f149e99.png" /></div>
@@ -83,25 +85,31 @@ The METHOD_CALLER function block calls the OPC-UA that is specified in its prope
 
 The OUTPUT will be a list in the same format as INPUT_VARS. Its values are the ones from the pipeline that the method has finished calling.
 
-### OPTIMIZATION
+#### OPTIMIZATION
 
 This folder contains function blocks that optimize the inputs given.
 
-### SENSORS_AND_SIMULATORS
+#### SENSORS_AND_SIMULATORS
 
 This folder contains function blocks that are either sensors, simulators or tools for either of these types of function blocks.
 
-### TEST
+#### TEST
 
 This folder contains function blocks that are used by DINASORE's unit tests.
 
-### USE_CASES
+#### USE_CASES
 
 This folder further contains more folders, each representing a specific use case (pipeline) for which the function blocks that they contain were used.
 
 ## sync
 
-The "sync" folder is a package that allows you to synchronize your "FBs" folder with other local or remote DINASOREs. Synchronization with remote DINASORES requires an SSH connection with the device running the DINASORE in question. Instructions are as follows.
+The "sync" folder is a package that allows you to synchronize your "FBs" folder with other local or remote DINASOREs.
+
+If the the DINASORE is running local (and not in a Docker), set the address to `localhost` and the port to `-1`.
+
+Synchronization with remote DINASORES requires an SSH connection with the device running the DINASORE in question. Setup a SSH connection in the device running DINASORE using "openssh-server" for example. In your machine you should be able to SSH into the device like `ssh root@x.x.x.x -p 22`.
+
+If you are using Docker locally, don't forget to map the SSH port (by default 22) to the host. The address to be used in Docker locally should be `localhost`. So you would run `ssh root@localhost -p 22`.
 
 ### config.json
 
@@ -113,6 +121,7 @@ In this package you will find a configuration file called "config.json". This fi
     "dinasores": [ # array of dinasores to be synchronized       
         {
             "address": # DINASORE address ,
+            "port": # DINASORE port ,
             "usename": # SSH username ,
             "password": # SSH password ,
             "dinasore-path": # path to the DINASORE root folder in the device running the DINASORE in question
@@ -129,10 +138,12 @@ In this package you will find a configuration file called "config.json". This fi
     "dinasores": [
         {
             "address": "localhost",
+            "port": -1,
             "dinasore-path": ".../dinasore"
         },
         {
             "address": "192.168.1.14",
+            "port": 22,
             "username": "pi",
             "password": "raspberry"
             "dinasore-path": ".../dinasore"

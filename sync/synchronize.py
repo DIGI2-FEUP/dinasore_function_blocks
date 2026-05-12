@@ -10,7 +10,7 @@ try:
     f = open(f_path)
 except FileNotFoundError:
     logging.error('Could not find configuration file.')
-    exit()    
+    exit()
 data = json.load(f)
 f.close()
 
@@ -32,5 +32,3 @@ for dinasore in dinasores:
     synchronizer.synchronize(dinasore)
 print('Copying process concluded')
 print('Synchronized {} DINASOREs'.format(len(dinasores)))
-
-

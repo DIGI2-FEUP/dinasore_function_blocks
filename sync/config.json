@@ -1,10 +1,11 @@
 {
-    "master-fbs-path": "C:/Users/Rafael/Documents/dinasore_function_blocks/FBs",
-    "dinasores": [        
+    "master-fbs-path": "./FBs",
+    "dinasores": [
         {
             "address": "localhost",
-            "dinasore-path": "C:/Users/Rafael/Documents/dinasore-cluster/dinasore-2/dinasore-ua" 
+            "port": 22,
+            "dinasore-path": "/dinasore"
         }
     ],
-    "strategy": ""
+    "strategy": "wipe"
 }

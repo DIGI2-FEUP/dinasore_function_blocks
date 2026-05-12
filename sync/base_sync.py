@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 class BaseSync(ABC):
-    
+
     @abstractmethod
     def synchronize(self):
         pass
