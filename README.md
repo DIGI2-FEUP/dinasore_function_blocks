@@ -6,6 +6,10 @@ This repository is dedicated to all Function Blocks that might be used in DINASO
 
 The "FBs" folder contains the set of previously mentioned function blocks. What follows is a brief description of the contents of each sub-folder.
 
+### ADDITIVE_MANUFACTURING
+
+This folder contains function blocks that control a 3D printer through OctoPrint. See its [README](FBs/ADDITIVE_MANUFACTURING/README.md).
+
 ### ARITHMETIC
 
 In this folder you will find function blocks that perform relatively simple mathematical calculations.
@@ -86,6 +90,14 @@ The OUTPUT will be a list in the same format as INPUT_VARS. Its values are the o
 ### OPTIMIZATION
 
 This folder contains function blocks that optimize the inputs given.
+
+### PREDICTIVE_MAINTENANCE
+
+This folder contains function blocks that estimate the remaining useful life of a component and decide when to act. See its [README](FBs/PREDICTIVE_MAINTENANCE/README.md).
+
+### SENSOR_INTEGRATION
+
+This folder contains function blocks that read sensors connected to the device, including high-rate streaming. See its [README](FBs/SENSOR_INTEGRATION/README.md).
 
 ### SENSORS_AND_SIMULATORS
 
